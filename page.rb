@@ -16,6 +16,10 @@ class Page
     @body ||= RubyPants.new(RedCloth.new(raw_body).to_html).to_html.wiki_linked
   end
   
+  def body=(something)
+    update(something)
+  end
+  
   def branch_name
     $repo.current_branch
   end
